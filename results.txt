@@ -1,0 +1,41 @@
+All times in ms from Linux box running Postgres 9.1
+
+Options:
+
+1a Existing schema multiple joins
+1b Existing schema pivot hack
+2  ELIS schema
+3  user_extend schema
+
+Case 1 - return all fields for 1 user
+
+Option      First Run   Subsequent run avg
+1a          1.543       1.494
+1b          1.252       1.151
+2           2.242       1.719
+3           1.232       0.919
+
+
+Case 2 - return all fields for 1000 users
+
+Option      First Run   Subsequent run avg
+1a          37.5016     37.076
+1b          46.571      45.086
+2           57.520      59.990
+3           37.082      32.123
+
+Case 3: return all users that match 1 field's value
+
+Option      First Run   Subsequent run avg
+1           200.762     190.889
+2           204.704     199.228
+3           208.798     196.734
+
+Case 4: return all users that match any field's value
+
+Option      First Run   Subsequent run avg
+1           209.816     202.240
+2           223.128     210.616
+3           198.069     196.383
+
+
